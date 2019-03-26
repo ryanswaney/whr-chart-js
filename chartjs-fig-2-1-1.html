@@ -1,0 +1,91 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <style>
+    body {
+      max-width: 60rem;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container">
+    <canvas id="Figure 2-1-1"></canvas>
+  </div>
+
+  <script language="JavaScript">
+    var ctx = document.getElementById('Figure 2-1-1').getContext('2d');
+    var CantrilLadder = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+        datasets: [{
+            data: [5.310, 5.400, 5.382, 5.215, 5.358, 5.383, 5.379, 5.334, 5.360, 5.285, 5.266, 5.203, 5.175],
+            label: "Population Weighted",
+            borderColor: "#ed207b",
+            pointradius: 10,
+            pointHitRadius: 25,
+            pointBordercolor: "#ed207b",
+            fill: false
+          }, {
+            data: [5.399, 5.520, 5.467, 5.466, 5.524, 5.538, 5.492, 5.389, 5.465, 5.393, 5.418, 5.414, 5.431],
+            label: "World excluding the Top 5 Populous Countries",
+            borderColor: "#94368e",
+            pointradius: 15,
+            pointHitRadius: 15,
+            pointBordercolor: "#94368e",
+            pointHoverBackgroundColor: "#94368e",
+            fill: false
+          }, {
+            data: [5.296, 5.371, 5.386, 5.404, 5.413, 5.419, 5.369, 5.345, 5.329, 5.320, 5.323, 5.403, 5.454],
+            label: "Non-population Weighted",
+            borderColor: "#d6df23",
+            pointradius: 10,
+            pointHitRadius: 15,
+            pointBordercolor: "#d6df23",
+            fill: false
+          }
+        ]
+      },
+      options: {
+
+        title: {
+          display: true,
+          text: 'Figure 2.1 World Dynamics of Happiness | Cantril Ladder',
+          fontColor: '#893D88',
+          fontSize: 18
+        },
+        defaultFontColor: '#893D88',
+        elements: {
+          line: {
+            tension: 0 // disables bezier curves
+          }
+        },
+        scales: {
+          yAxes: [{
+            gridLines: {
+              lineWidth: 1.5
+            },
+            scaleLabel: {
+              fontColor: '#893D88' 
+            }
+          }],
+          xAxes: [{
+            display: false
+          }]
+        },
+        legend: {
+          position: 'bottom',
+          labels: {
+            fontColor: '#893D88',
+            padding: 40
+          }
+        }
+      }
+    });
+
+
+    </script>
+</body>
+</html>
