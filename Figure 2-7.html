@@ -1,0 +1,41 @@
+<html>
+<head>
+<h5>Figure 2.7: Ranking of Happiness 2016-2018</h5>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script language="JavaScript"><!--
+      new Chart(document.getElementById("Figure 2-7"), {
+          type: 'doughnut',
+          data: {
+            labels: ["GDP per Capita", "Social Support", "Healthy Life Expectancy", "Freedom to Make Life Choices", "Generosity", "Perceptions of Corruption", "Dystopia (1.88) + Residual"],
+            datasets: [
+              {
+                label: "Findland",
+                backgroundColor: ["#660099", "#FF0099","#FF6600","#CCFF00","#00CCFF", "#6666ff", "#9966ff"],
+                data: [2478,5267,734,784,433]
+              },
+              {
+                label: "Denmark",
+                backgroundColor: ["#660099", "#FF0099","#FF6600","#CCFF00","#00CCFF", "#6666ff", "#9966ff"],
+                data: [2478,5267,734,784,433]
+              }
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'Figure 2.7: Ranking of Happiness 2016-2018'
+            }
+          }
+      });
+      var ctx = document.getElementById("lineChart").getContext("2d");
+      var options = { };
+      var lineChart = new Chart(ctx).Line(data, options);
+    }
+    --></script>
+</head>
+<body onload="displayLineChart();">
+  <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas id="Figure 2-7" width="800" height="450"></canvas>
+  </div>
+</body>
+</html>
