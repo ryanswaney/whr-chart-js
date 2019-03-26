@@ -1,0 +1,39 @@
+<html>
+<head>
+  <h5>Figure 2.1 World Dynamics of Happiness</h5>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="chart_div"></div>
+    <script language="JavaScript"><!--
+        google.charts.load('current', {packages: ['corechart', 'line']});
+        google.charts.setOnLoadCallback(drawBasic);
+        function drawBasic() {
+              var data = new google.visualization.DataTable();
+              data.addColumn('number', 'X');
+              data.addColumn('number', 'Values');
+              data.addColumn({id:'i0', type:'number', role:'{Population Weighted}'});
+              data.addColumn({id:'i1', type:'number', role:'World excluding the Top 5 Populous Countries'});
+              data.addColumn({id:'i2', type:'number', role:'Non-Population Weighted'})
+
+              data.addRows([
+                [2006, 5.310], [2007, 5.400], [2008, 5.382], [2009, 5.215], [2010, 5.385], [2011, 5.383], [2012, 5.379], [2013, 5.334], [2014, 5.360], [2015, 5.285], [2016, 5.266], [2017, 5.203], [2018, 5.175]
+                [2006, 5.399], [2007, 5.520], [2008, 5.467], [2009, 5.466], [2010, 5.524], [2011, 5.538], [2012, 5.492], [2013, 5.389], [2014, 5.465], [2015, 5.393], [2016, 5.418], [2017, 5.414], [2018, 5.431]
+              ]);
+
+              var options = {
+                hAxis: {
+                  title: 'Year'
+                },
+                vAxis: {
+                  title: 'Score'
+                }
+              };
+
+          var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+          chart.draw(data, options);
+        }
+      --></script>
+    </body>
+</html>

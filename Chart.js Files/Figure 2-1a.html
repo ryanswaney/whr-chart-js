@@ -1,15 +1,15 @@
 <html>
 <head>
-  <h5>Figure 2.1 World Dynamics of Happiness</h5>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <body>
   <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-    <canvas id="Figure 2-7" width="800" height="450"></canvas>
+    <canvas id="Figure 2-1a" width="800" height="450"></canvas>
   </div>
 
   <script language="JavaScript"><!--
-    var ctx = document.getElementById('Figure 2-7').getContext('2d');
+  Chart.defaults.global.defaultFontColor = '#893D88';
+    var ctx = document.getElementById('Figure 2-1a').getContext('2d');
     var CantrilLadder = new Chart(ctx, {
       type: 'line',
       data: {
@@ -17,7 +17,7 @@
         datasets: [{
             data: [5.310, 5.400, 5.382, 5.215, 5.358, 5.383, 5.379, 5.334, 5.360, 5.285, 5.266, 5.203, 5.175],
             label: "Population Weighted",
-            borderColor: "#33ccff",
+            borderColor: "#0099ff",
             pointradius: 10,
             pointHitRadius: 15,
             pointBordercolor: "#000033",
@@ -25,7 +25,7 @@
           }, {
             data: [5.399, 5.520, 5.467, 5.466, 5.524, 5.538, 5.492, 5.389, 5.465, 5.393, 5.418, 5.414, 5.431],
             label: "World excluding the Top 5 Populous Countries",
-            borderColor: "#52BE80",
+            borderColor: "#90A4AE",
             pointradius: 10,
             pointHitRadius: 15,
             pointBordercolor: "#003300",
@@ -33,7 +33,7 @@
           }, {
             data: [5.296, 5.371, 5.386, 5.404, 5.413, 5.419, 5.369, 5.345, 5.329, 5.320, 5.323, 5.403, 5.454],
             label: "Non-population Weighted",
-            borderColor: "#ff6633",
+            borderColor: "#ff6600",
             pointradius: 10,
             pointHitRadius: 15,
             pointBordercolor: "#330000",
@@ -48,7 +48,7 @@
         }
       }
     });
-        
+
 
     </script>
 </body>
