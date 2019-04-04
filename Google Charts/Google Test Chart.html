@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'values');
+    data.addColumn({id:'i0', type:'number', role:'interval'});
+    data.addColumn({id:'i1', type:'number', role:'interval'});
+
+    data.addRows([
+      [2006, 5.310, 5.328, 5.292],
+      [2007, 5.400, 5.416, 5.384],
+      [2008, 5.382, 5.398, 5.366],
+      [2009, 5.215, 5.231, 5.199],
+      [2010, 5.358, 5.372, 5.344],
+      [2011, 5.383, 5.397, 5.369],
+      [2012, 5.379, 5.389, 5.369],
+      [2013, 5.334, 5.348, 5.320],
+      [2014, 5.360, 5.376, 5.344],
+      [2015, 5.285, 5.300, 5.270],
+      [2016, 5.266, 5.280, 5.252],
+      [2017, 5.203, 5.218, 5.185],
+      [2018, 5.175, 5.192, 5.158]]);
+
+    // The intervals data as narrow lines (useful for showing raw source data)
+    var options_bars = {
+        title: 'Bars, default',
+        curveType: 'function',
+        series: [{'color': '#D9544C'}],
+        intervals: { style: 'bars' },
+        legend: 'none',
+    };
+
+    var chart_lines = new google.visualization.LineChart(document.getElementById('chart_lines'));
+    chart_lines.draw(data, options_bars);
+    }
+    </script>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="chart_lines" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

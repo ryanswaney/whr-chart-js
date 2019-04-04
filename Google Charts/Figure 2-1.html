@@ -1,39 +1,63 @@
 <html>
-<head>
-  <h5>Figure 2.1 World Dynamics of Happiness</h5>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-</head>
-<body>
-    <div id="chart_div"></div>
-    <script language="JavaScript"><!--
-        google.charts.load('current', {packages: ['corechart', 'line']});
-        google.charts.setOnLoadCallback(drawBasic);
-        function drawBasic() {
-              var data = new google.visualization.DataTable();
-              data.addColumn('number', 'X');
-              data.addColumn('number', 'Values');
-              data.addColumn({id:'i0', type:'number', role:'{Population Weighted}'});
-              data.addColumn({id:'i1', type:'number', role:'World excluding the Top 5 Populous Countries'});
-              data.addColumn({id:'i2', type:'number', role:'Non-Population Weighted'})
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
 
-              data.addRows([
-                [2006, 5.310], [2007, 5.400], [2008, 5.382], [2009, 5.215], [2010, 5.385], [2011, 5.383], [2012, 5.379], [2013, 5.334], [2014, 5.360], [2015, 5.285], [2016, 5.266], [2017, 5.203], [2018, 5.175]
-                [2006, 5.399], [2007, 5.520], [2008, 5.467], [2009, 5.466], [2010, 5.524], [2011, 5.538], [2012, 5.492], [2013, 5.389], [2014, 5.465], [2015, 5.393], [2016, 5.418], [2017, 5.414], [2018, 5.431]
-              ]);
+    function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'Population Weighted');
+    data.addColumn({id:'i0', type:'number', role:'interval'});
+    data.addColumn({id:'i1', type:'number', role:'interval'});
+    data.addColumn('number', 'Population weighted (excluding top 5 largest countries)')
+    data.addColumn({id:'i2', type:'number', role:'interval'});
+    data.addColumn({id:'i3', type:'number', role:'interval'});
+    data.addColumn('number', 'Non-population weighted')
+    data.addColumn({id:'i4', type:'number', role:'interval'});
+    data.addColumn({id:'i5', type:'number', role:'interval'});
 
-              var options = {
-                hAxis: {
-                  title: 'Year'
-                },
-                vAxis: {
-                  title: 'Score'
-                }
-              };
+    data.addRows([
+      [2006, 5.310, 5.328, 5.292, 5.399, 5.388, 5.410, 5.296, 5.303, 5.289],
+      [2007, 5.400, 5.416, 5.384, 5.520, 5.530, 5.510, 5.371, 5.377, 5.365],
+      [2008, 5.382, 5.398, 5.366, 5.467, 5.477, 5.457, 5.386, 5.379, 5.393],
+      [2009, 5.215, 5.231, 5.199, 5.466, 5.476, 5.456, 5.404, 5.411, 5.397],
+      [2010, 5.358, 5.372, 5.344, 5.524, 5.535, 5.513, 5.413, 5.420, 5.406],
+      [2011, 5.383, 5.397, 5.369, 5.538, 5.549, 5.527, 5.419, 5.426, 5.412],
+      [2012, 5.379, 5.389, 5.369, 5.492, 5.500, 5.484, 5.369, 5.376, 5.362],
+      [2013, 5.334, 5.348, 5.320, 5.389, 5.401, 5.377, 5.345, 5.352, 5.338],
+      [2014, 5.360, 5.376, 5.344, 5.465, 5.476, 5.454, 5.329, 5.336, 5.322],
+      [2015, 5.285, 5.300, 5.270, 5.393, 5.405, 5.381, 5.320, 5.327, 5.313],
+      [2016, 5.266, 5.280, 5.252, 5.418, 5.430, 5.406, 5.323, 5.331, 5.315],
+      [2017, 5.203, 5.218, 5.185, 5.414, 5.426, 5.402, 5.403, 5.411, 5.395],
+      [2018, 5.175, 5.192, 5.158, 5.431, 5.443, 5.419, 5.454, 5.462, 5.446]]);
 
-          var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-          chart.draw(data, options);
+    var options_bars = {
+        title: 'Figure 2.1a: Cantril Ladder',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
         }
-      --></script>
-    </body>
+    };
+
+    var chart_lines = new google.visualization.LineChart(document.getElementById('chart_lines'));
+    chart_lines.draw(data, options_bars);
+    }
+    </script>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="chart_lines" style="width: 900px; height: 500px;"></div>
+  </body>
 </html>
