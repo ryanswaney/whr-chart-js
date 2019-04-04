@@ -3,9 +3,11 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawCantrilLadder);
+    google.charts.setOnLoadCallback(drawPositiveAffect);
+    google.charts.setOnLoadCallback(drawNegativeAffect);
 
-    function drawChart() {
+    function drawCantrilLadder() {
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'x');
     data.addColumn('number', 'Population Weighted');
@@ -51,13 +53,107 @@
         }
     };
 
-    var chart_lines = new google.visualization.LineChart(document.getElementById('chart_lines'));
-    chart_lines.draw(data, options_bars);
-    }
+    var CantrilLadder = new google.visualization.LineChart(document.getElementById('CantrilLadder'));
+    CantrilLadder.draw(data, options_bars)
+  };
+
+  function drawPositiveAffect() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('number', 'x');
+  data.addColumn('number', 'Population Weighted');
+  data.addColumn({id:'i0', type:'number', role:'interval'});
+  data.addColumn({id:'i1', type:'number', role:'interval'});
+  data.addColumn('number', 'Non-population Weighted')
+  data.addColumn({id:'i2', type:'number', role:'interval'});
+  data.addColumn({id:'i3', type:'number', role:'interval'});
+
+  data.addRows([
+    [2006, 0.745, 0.749, 0.741, 0.714, 0.715, 0.713],
+    [2007, 0.743, 0.746, 0.740, 0.714, 0.715, 0.713],
+    [2008, 0.744, 0.747, 0.741, 0.705, 0.706, 0.704],
+    [2009, 0.758, 0.761, 0.755, 0.710, 0.711, 0.709],
+    [2010, 0.741, 0.743, 0.739, 0.715, 0.716, 0.714],
+    [2011, 0.738, 0.740, 0.736, 0.708, 0.709, 0.707],
+    [2012, 0.735, 0.737, 0.733, 0.707, 0.708, 0.706],
+    [2013, 0.748, 0.750, 0.746, 0.713, 0.714, 0.712],
+    [2014, 0.754, 0.757, 0.751, 0.706, 0.707, 0.705],
+    [2015, 0.738, 0.741, 0.735, 0.711, 0.712, 0.710],
+    [2016, 0.739, 0.741, 0.737, 0.713, 0.714, 0.712],
+    [2017, 0.731, 0.734, 0.728, 0.705, 0.706, 0.704],
+    [2018, 0.734, 0.736, 0.732, 0.710, 0.711, 0.709]]);
+
+  var options_bars = {
+      title: 'Figure 2.1b: Positive Affect',
+      titleTextStyle: {
+        color: '#893D88'
+      },
+      curveType: 'function',
+      series: {
+          0: { color: '#ed207b' },
+          1: { color: '#d6df23' },
+          2: { color: '#94368e' }
+        },
+      intervals: { style: 'bars' },
+      legend: {position: 'bottom'},
+      hAxis: {
+        format: '0000'
+      }
+  };
+
+  var PositiveAffect = new google.visualization.LineChart(document.getElementById('PositiveAffect'));
+  PositiveAffect.draw(data, options_bars);
+  };
+  function drawNegativeAffect() {
+  var data = new google.visualization.DataTable();
+  data.addColumn('number', 'x');
+  data.addColumn('number', 'Population Weighted');
+  data.addColumn({id:'i0', type:'number', role:'interval'});
+  data.addColumn({id:'i1', type:'number', role:'interval'});
+  data.addColumn('number', 'Non-population Weighted')
+  data.addColumn({id:'i2', type:'number', role:'interval'});
+  data.addColumn({id:'i3', type:'number', role:'interval'});
+
+  data.addRows([
+    [2006, 0.224, 0.227, 0.221, 0.254, 0.255, 0.253],
+    [2007, 0.230, 0.233, 0.227, 0.247, 0.248, 0.246],
+    [2008, 0.224, 0.227, 0.221, 0.247, 0.248, 0.246],
+    [2009, 0.232, 0.234, 0.230, 0.242, 0.243, 0.241],
+    [2010, 0.222, 0.224, 0.220, 0.235, 0.236, 0.234],
+    [2011, 0.219, 0.221, 0.217, 0.245, 0.246, 0.244],
+    [2012, 0.241, 0.242, 0.240, 0.256, 0.257, 0.255],
+    [2013, 0.248, 0.250, 0.246, 0.269, 0.270, 0.268],
+    [2014, 0.233, 0.235, 0.231, 0.272, 0.273, 0.271],
+    [2015, 0.259, 0.261, 0.257, 0.277, 0.278, 0.276],
+    [2016, 0.264, 0.266, 0.262, 0.286, 0.287, 0.286],
+    [2017, 0.275, 0.277, 0.273, 0.291, 0.292, 0.290],
+    [2018, 0.286, 0.288, 0.284, 0.295, 0.296, 0.294]]);
+
+  var options_bars = {
+      title: 'Figure 2.1c: Negative Affect',
+      titleTextStyle: {
+        color: '#893D88'
+      },
+      curveType: 'function',
+      series: {
+          0: { color: '#ed207b' },
+          1: { color: '#d6df23' },
+          2: { color: '#94368e' }
+        },
+      intervals: { style: 'bars' },
+      legend: {position: 'bottom'},
+      hAxis: {
+        format: '0000'
+      }
+  };
+
+  var NegativeAffect = new google.visualization.LineChart(document.getElementById('NegativeAffect'));
+  NegativeAffect.draw(data, options_bars);
+  }
     </script>
   </head>
   <body>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="chart_lines" style="width: 900px; height: 500px;"></div>
+      <div id="CantrilLadder" style="width: 900px; height: 500px"></div> <br>
+      <div id="PositiveAffect" style="width: 900px; height: 500px"></div><br>
+      <div id="NegativeAffect" style="width: 900px; height: 500px"></div>
   </body>
 </html>
