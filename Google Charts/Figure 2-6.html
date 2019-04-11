@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawEurope);
+    google.charts.setOnLoadCallback(drawThe_Americas_and_ANZ);
+    google.charts.setOnLoadCallback(drawAsia);
+    google.charts.setOnLoadCallback(drawAfrica_and_Middle_East);
+
+    function drawAfrica_and_Middle_East() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'Middle East and North Africa');
+    data.addColumn('number', 'Sub-Saharan Africa');
+
+    data.addRows([
+      [2006, 2.226, 1.876],
+      [2007, 2.185, 1.817],
+      [2008, 2.158, 1.799],
+      [2009, 1.996, 1.938],
+      [2010, 2.174, 1.888],
+      [2011, 2.307, 1.939],
+      [2012, 2.289, 1.974],
+      [2013, 2.588, 2.039],
+      [2014, 2.508, 2.525],
+      [2015, 2.513, 2.269],
+      [2016, 2.448, 2.485],
+      [2017, 2.453, 2.668],
+      [2018, 2.456, 2.739]]);
+
+    var options_bars = {
+        title: 'Africa and Middle East',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var Africa_and_Middle_East = new google.visualization.LineChart(document.getElementById('Africa_and_Middle_East'));
+    Africa_and_Middle_East.draw(data, options_bars);
+    };
+    function drawThe_Americas_and_ANZ() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'Latin America and Caribbean');
+    data.addColumn('number', 'North American and ANZ')
+
+    data.addRows([
+      [2006, 2.409, 1.833],
+      [2007, 2.272, 1.734],
+      [2008, 2.331, 1.758],
+      [2009, 2.332, 1.966],
+      [2010, 2.320, 2.119],
+      [2011, 2.263, 1.924],
+      [2012, 2.368, 2.104],
+      [2013, 2.314, 1.900],
+      [2014, 2.263, 2.023],
+      [2015, 2.339, 1.912],
+      [2016, 2.480, 1.942],
+      [2017, 2.536, 1.849],
+      [2018, 2.630, 2.063]]);
+
+    var options_bars = {
+        title: 'The Americas and ANZ',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var The_Americas_and_ANZ = new google.visualization.LineChart(document.getElementById('The_Americas_and_ANZ'));
+    The_Americas_and_ANZ.draw(data, options_bars);
+    };
+    function drawAsia() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'East Asia');
+    data.addColumn('number', 'South Asia');
+    data.addColumn('number', 'Southeast Asia');
+
+    data.addRows([
+      [2006, 2.053, 2.001, 1.820],
+      [2007, 1.863, 1.773, 1.690],
+      [2008, 1.856, 1.800, 1.761],
+      [2009, 1.900, 2.011, 1.791],
+      [2010, 1.956, 2.001, 1.726],
+      [2011, 1.956, 1.854, 1.827],
+      [2012, 2.089, 1.985, 1.847],
+      [2013, 1.913, 2.064, 1.892],
+      [2014, 1.828, 2.297, 2.040],
+      [2015, 2.057, 2.116, 2.151],
+      [2016, 2.006, 1.855, 2.342],
+      [2017, 2.251, 1.807, 2.291],
+      [2017, 2.234, 2.298, 2.378]]);
+
+    var options_bars = {
+        title: 'Asia',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var Asia = new google.visualization.LineChart(document.getElementById('Asia'));
+    Asia.draw(data, options_bars);
+    };
+    function drawEurope() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'Central and Eastern Europe');
+    data.addColumn('number', 'Commonwealth of Independent States');
+    data.addColumn('number', 'Western Europe');
+
+    data.addRows([
+      [2006, 2.189, 1.998, 1.820],
+      [2007, 2.107, 1.944, 1.879],
+      [2008, 2.109, 2.049, 1.779],
+      [2009, 2.083, 1.979, 1.967],
+      [2010, 2.135, 1.911, 1.914],
+      [2011, 2.126, 1.987, 1.870],
+      [2012, 2.191, 2.051, 2.014],
+      [2013, 2.170, 1.937, 1.982],
+      [2014, 2.162, 2.106, 1.909],
+      [2015, 2.060, 2.175, 1.821],
+      [2016, 2.049, 2.164, 1.824],
+      [2017, 1.970, 2.193, 1.771],
+      [2018, 1.942, 2.184, 1.697]]);
+
+    var options_bars = {
+        title: 'Europe',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var Europe = new google.visualization.LineChart(document.getElementById('Europe'));
+    Europe.draw(data, options_bars)
+    }
+    </script>
+  </head>
+  <body>
+      <h5> Figure 2.3 Dynamics of Positive Affect in 10 Regions</h5>
+      <div id="Africa_and_Middle_East" style="width: 900px; height: 500px"></div><br>
+      <div id="The_Americas_and_ANZ" style="width: 900px; height: 500px"></div><br>
+      <div id="Asia" style="width: 900px; height: 500px"></div><br>
+      <div id="Europe" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
