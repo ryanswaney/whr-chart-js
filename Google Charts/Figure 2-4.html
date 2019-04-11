@@ -1,0 +1,210 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawEurope);
+    google.charts.setOnLoadCallback(drawThe_Americas_and_ANZ);
+    google.charts.setOnLoadCallback(drawAsia);
+    google.charts.setOnLoadCallback(drawAfrica_and_Middle_East);
+
+    function drawAfrica_and_Middle_East() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'Middle East and North Africa');
+    data.addColumn({id:'i0', type:'number', role:'interval'});
+    data.addColumn({id:'i1', type:'number', role:'interval'});
+    data.addColumn('number', 'Sub-Saharan Africa')
+    data.addColumn({id:'i2', type:'number', role:'interval'});
+    data.addColumn({id:'i3', type:'number', role:'interval'});
+
+    data.addRows([
+      [2006, 0.363, 0.369, 0.357, 0.216, 0.219, 0.213],
+      [2007, 0.357, 0.362, 0.352, 0.205, 0.208, 0.202],
+      [2008, 0.331, 0.336, 0.326, 0.224, 0.227, 0.221],
+      [2009, 0.334, 0.340, 0.328, 0.217, 0.220, 0.214],
+      [2010, 0.325, 0.331, 0.319, 0.192, 0.195, 0.189],
+      [2011, 0.338, 0.342, 0.334, 0.203, 0.206, 0.200],
+      [2012, 0.370, 0.373, 0.367, 0.211, 0.214, 0.208],
+      [2013, 0.406, 0.411, 0.401, 0.244, 0.247, 0.241],
+      [2014, 0.344, 0.349, 0.339, 0.278, 0.282, 0.274],
+      [2015, 0.376, 0.381, 0.371, 0.264, 0.267, 0.261],
+      [2016, 0.386, 0.391, 0.381, 0.292, 0.295, 0.289],
+      [2017, 0.375, 0.380, 0.370, 0.317, 0.321, 0.313],
+      [2018, 0.376, 0.381, 0.371, 0.317, 0.321, 0.313]]);
+
+    var options_bars = {
+        title: 'Africa and Middle East',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var Africa_and_Middle_East = new google.visualization.LineChart(document.getElementById('Africa_and_Middle_East'));
+    Africa_and_Middle_East.draw(data, options_bars);
+    };
+    function drawThe_Americas_and_ANZ() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'Latin America and Caribbean');
+    data.addColumn({id:'i0', type:'number', role:'interval'});
+    data.addColumn({id:'i1', type:'number', role:'interval'});
+    data.addColumn('number', 'North American and ANZ')
+    data.addColumn({id:'i2', type:'number', role:'interval'});
+    data.addColumn({id:'i3', type:'number', role:'interval'});
+
+    data.addRows([
+      [2006, 0.293, 0.298, 0.288, 0.256, 0.267, 0.245],
+      [2007, 0.282, 0.287, 0.277, 0.233, 0.244, 0.222],
+      [2008, 0.265, 0.270, 0.260, 0.224, 0.232, 0.216],
+      [2009, 0.252, 0.257, 0.247, 0.257, 0.268, 0.246],
+      [2010, 0.241, 0.246, 0.236, 0.231, 0.242, 0.220],
+      [2011, 0.262, 0.267, 0.257, 0.265, 0.277, 0.253],
+      [2012, 0.310, 0.315, 0.305, 0.250, 0.261, 0.239],
+      [2013, 0.272, 0.276, 0.268, 0.254, 0.265, 0.243],
+      [2014, 0.269, 0.274, 0.264, 0.276, 0.288, 0.264],
+      [2015, 0.300, 0.305, 0.295, 0.270, 0.281, 0.259],
+      [2016, 0.294, 0.299, 0.289, 0.259, 0.270, 0.248],
+      [2017, 0.296, 0.301, 0.291, 0.260, 0.272, 0.248],
+      [2018, 0.309, 0.314, 0.304, 0.281, 0.292, 0.270]]);
+
+    var options_bars = {
+        title: 'The Americas and ANZ',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var The_Americas_and_ANZ = new google.visualization.LineChart(document.getElementById('The_Americas_and_ANZ'));
+    The_Americas_and_ANZ.draw(data, options_bars);
+    };
+    function drawAsia() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'East Asia');
+    data.addColumn({id:'i0', type:'number', role:'interval'});
+    data.addColumn({id:'i1', type:'number', role:'interval'});
+    data.addColumn('number', 'South Asia')
+    data.addColumn({id:'i4', type:'number', role:'interval'});
+    data.addColumn({id:'i5', type:'number', role:'interval'});
+    data.addColumn('number', 'Southeast Asia')
+    data.addColumn({id:'i2', type:'number', role:'interval'});
+    data.addColumn({id:'i3', type:'number', role:'interval'});
+
+    data.addRows([
+      [2006, 0.173, 0.178, 0.168, 0.215, 0.224, 0.206, 0.232, 0.238, 0.316],
+      [2007, 0.165, 0.170, 0.160, 0.262, 0.271, 0.253, 0.240, 0.245, 0.235],
+      [2008, 0.154, 0.159, 0.149, 0.259, 0.268, 0.250, 0.241, 0.247, 0.235],
+      [2009, 0.164, 0.169, 0.159, 0.294, 0.301, 0.287, 0.206, 0.211, 0.201],
+      [2010, 0.160, 0.165, 0.155, 0.277, 0.282, 0.272, 0.228, 0.234, 0.222],
+      [2011, 0.139, 0.144, 0.134, 0.244, 0.249, 0.239, 0.242, 0.248, 0.236],
+      [2012, 0.161, 0.164, 0.158, 0.285, 0.288, 0.282, 0.233, 0.237, 0.229],
+      [2013, 0.147, 0.152, 0.142, 0.313, 0.318, 0.308, 0.240, 0.246, 0.234],
+      [2014, 0.119, 0.124, 0.114, 0.281, 0.288, 0.274, 0.242, 0.248, 0.236],
+      [2015, 0.174, 0.179, 0.169, 0.313, 0.320, 0.306, 0.271, 0.277, 0.265],
+      [2016, 0.152, 0.157, 0.147, 0.333, 0.339, 0.327, 0.295, 0.301, 0.289],
+      [2017, 0.210, 0.215, 0.205, 0.308, 0.314, 0.302, 0.301, 0.308, 0.294],
+      [2018, 0.189, 0.194, 0.184, 0.360, 0.367, 0.353, 0.280, 0.286, 0.274]]);
+
+    var options_bars = {
+        title: 'Asia',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var Asia = new google.visualization.LineChart(document.getElementById('Asia'));
+    Asia.draw(data, options_bars);
+    };
+    function drawEurope() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'x');
+    data.addColumn('number', 'Central and Eastern Europe');
+    data.addColumn({id:'i2', type:'number', role:'interval'});
+    data.addColumn({id:'i3', type:'number', role:'interval'});
+    data.addColumn('number', 'Commonwealth of Independent States');
+    data.addColumn({id:'i4', type:'number', role:'interval'});
+    data.addColumn({id:'i5', type:'number', role:'interval'});
+    data.addColumn('number', 'Western Europe');
+    data.addColumn({id:'i0', type:'number', role:'interval'});
+    data.addColumn({id:'i1', type:'number', role:'interval'});
+
+    data.addRows([
+      [2006, 0.292, 0.299, 0.285, 0.233, 0.238, 0.228, 0.292, 0.299, 0.285],
+      [2007, 0.263, 0.268, 0.258, 0.200, 0.205, 0.195, 0.263, 0.268, 0.258],
+      [2008, 0.263, 0.268, 0.258, 0.180, 0.184, 0.176, 0.263, 0.268, 0.258],
+      [2009, 0.271, 0.275, 0.267, 0.179, 0.184, 0.174, 0.271, 0.275, 0.268],
+      [2010, 0.279, 0.283, 0.275, 0.187, 0.191, 0.183, 0.279, 0.283, 0.275],
+      [2011, 0.272, 0.277, 0.267, 0.180, 0.185, 0.175, 0.272, 0.277, 0.267],
+      [2012, 0.293, 0.298, 0.288, 0.181, 0.185, 0.177, 0.293, 0.298, 0.288],
+      [2013, 0.285, 0.290, 0.280, 0.187, 0.192, 0.182, 0.285, 0.290, 0.280],
+      [2014, 0.262, 0.267, 0.257, 0.174, 0.178, 0.170, 0.262, 0.267, 0.257],
+      [2015, 0.261, 0.266, 0.256, 0.163, 0.167, 0.159, 0.261, 0.266, 0.256],
+      [2016, 0.242, 0.246, 0.238, 0.168, 0.172, 0.164, 0.242, 0.246, 0.238],
+      [2017, 0.228, 0.232, 0.224, 0.209, 0.214, 0.204, 0.228, 0.232, 0.224],
+      [2018, 0.233, 0.237, 0.229, 0.208, 0.213, 0.203, 0.233, 0.237, 0.229]]);
+
+    var options_bars = {
+        title: 'Europe',
+        titleTextStyle: {
+          color: '#893D88'
+        },
+        curveType: 'function',
+        series: {
+            0: { color: '#ed207b' },
+            1: { color: '#d6df23' },
+            2: { color: '#94368e' }
+          },
+        intervals: { style: 'bars' },
+        legend: {position: 'bottom'},
+        hAxis: {
+          format: '0000'
+        }
+    };
+
+    var Europe = new google.visualization.LineChart(document.getElementById('Europe'));
+    Europe.draw(data, options_bars)
+    }
+    </script>
+  </head>
+  <body>
+      <h5> Figure 2.3 Dynamics of Positive Affect in 10 Regions</h5>
+      <div id="Africa_and_Middle_East" style="width: 900px; height: 500px"></div><br>
+      <div id="The_Americas_and_ANZ" style="width: 900px; height: 500px"></div><br>
+      <div id="Asia" style="width: 900px; height: 500px"></div><br>
+      <div id="Europe" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
