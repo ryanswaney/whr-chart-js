@@ -1,48 +1,157 @@
 <html>
   <head>
+    <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('number', 'x');
-    data.addColumn('number', 'values');
-    data.addColumn({id:'i0', type:'number', role:'interval'});
-    data.addColumn({id:'i1', type:'number', role:'interval'});
+      // Load the Visualization API and the controls package.
+      google.charts.load('current', {'packages':['corechart', 'controls']});
 
-    data.addRows([
-      [2006, 5.310, 5.328, 5.292],
-      [2007, 5.400, 5.416, 5.384],
-      [2008, 5.382, 5.398, 5.366],
-      [2009, 5.215, 5.231, 5.199],
-      [2010, 5.358, 5.372, 5.344],
-      [2011, 5.383, 5.397, 5.369],
-      [2012, 5.379, 5.389, 5.369],
-      [2013, 5.334, 5.348, 5.320],
-      [2014, 5.360, 5.376, 5.344],
-      [2015, 5.285, 5.300, 5.270],
-      [2016, 5.266, 5.280, 5.252],
-      [2017, 5.203, 5.218, 5.185],
-      [2018, 5.175, 5.192, 5.158]]);
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawDashboard);
 
-    // The intervals data as narrow lines (useful for showing raw source data)
-    var options_bars = {
-        title: 'Bars, default',
-        curveType: 'function',
-        series: [{'color': '#D9544C'}],
-        intervals: { style: 'bars' },
-        legend: 'none',
-    };
+      // Callback that creates and populates a data table,
+      // instantiates a dashboard, a range slider and a pie chart,
+      // passes in the data and draws it.
+      function drawDashboard() {
 
-    var chart_lines = new google.visualization.LineChart(document.getElementById('chart_lines'));
-    chart_lines.draw(data, options_bars);
-    }
+        // Create our data table.
+        var data = google.visualization.arrayToDataTable([
+          ['Name', 'Donuts eaten'],
+
+          ['Honduras', 5.860],
+          ['Kazakhstan', 5.809],
+          ['Bolivia', 5.779],
+          ['Hungary', 5.758],
+          
+          ['Montenegro', 5.523],
+          ['Tajikistan', 5.467],
+          ['Croatia', 5.432],
+          ['Hong Kong S.A.R. of China', 5.430],
+          ['Dominican Republic', 5.425],
+          ['Bosnia and Herzegovina', 5.386],
+          ['Turkey', 5.373],
+          ['Malaysia', 5.339],
+          ['Belarus', 5.323],
+          ['Greece', 5.287],
+          ['Mongolia', 5.285],
+          ['Macedonia', 5.274],
+          ['Nigeria', 5.265],
+          ['Kyrgyzstan', 5.261],
+          ['Turkmenistan', 5.247],
+          ['Algeria', 5.211],
+          ['Morocco', 5.208],
+          ['Azerbaijan', 5.208],
+          ['Lebanon', 5.197],
+          ['Indonesia', 5.192],
+          ['China', 5.191],
+          ['Vietnam', 5.175],
+          ['Bhutan', 5.082],
+          ['Cameroon', 5.044],
+          ['Bulgaria', 5.011],
+          ['Ghana', 4.996],
+          ['Ivory Coast', 4.944],
+          ['Nepal', 4.913],
+          ['Jordan',  4.906],
+          ['Benin', 4.883],
+          ['Congo (Brazzaville)', 4.812],
+          ['Gabon', 4.799],
+          ['Laos', 4.796],
+          ['South Africa', 4.722],
+          ['Albania', 4.712],
+          ['Venezuela', 4.707],
+          ['Cambodia', 4.700],
+          ['Palestinian Territories', 4.696],
+          ['Senegal', 4.681],
+          ['Somalia', 4.668],
+          ['Namibia', 4.639],
+          ['Niger', 4.628],
+          ['Burkina Faso', 4.587],
+          ['Armenia', 4.559],
+          ['Iran', 4.548],
+          ['Guinea', 4.534],
+          ['Georgia', 4.519],
+          ['Gambia', 4.516],
+          ['Kenya', 4.509],
+          ['Mauritania', 4.490],
+          ['Mozambique', 4.466],
+          ['Tunisia', 4.461],
+          ['Bangladesh', 4.456],
+          ['Iraq', 4.437],
+          ['Congo (Kinshasa)', 4.418],
+          ['Mali', 4.390],
+          ['Sierra Leone', 4.374],
+          ['Sri Lanka', 4.366],
+          ['Myanmar', 4.360],
+          ['Chad', 4.350],
+          ['Ukraine', 4.332],
+          ['Ethiopia', 4.286],
+          ['Swaziland', 4.212],
+          ['Uganda', 4.189],
+          ['Egypt', 4.166],
+          ['Zambia', 4.107],
+          ['Togo', 4.085],
+          ['India', 4.015],
+          ['Liberia', 3.975],
+          ['Comoros', 3.973],
+          ['Madagascar', 3.933],
+          ['Lesotho', 3.802],
+          ['Burundi', 3.775],
+          ['Zimbabwe', 3.663],
+          ['Haiti', 3.597],
+          ['Botswana', 3.488],
+          ['Syria', 3.462],
+          ['Malawi', 3.410],
+          ['Yemen', 3.380],
+          ['Rwanda', 3.334],
+          ['Tanzania', 3.231],
+          ['Afghanistan', 3.203],
+          ['Central African Republic', 3.083],
+          ['South Sudan', 2.853]
+        ]);
+
+        // Create a dashboard.
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('dashboard_div'));
+
+        // Create a range slider, passing some options
+        var donutRangeSlider = new google.visualization.ControlWrapper({
+          'controlType': 'NumberRangeFilter',
+          'containerId': 'filter_div',
+          'options': {
+            'filterColumnLabel': 'Donuts eaten'
+          }
+        });
+
+        // Create a pie chart, passing some options
+        var pieChart = new google.visualization.ChartWrapper({
+          'chartType': 'PieChart',
+          'containerId': 'chart_div',
+          'options': {
+            'width': 300,
+            'height': 300,
+            'pieSliceText': 'value',
+            'legend': 'right'
+          }
+        });
+
+        // Establish dependencies, declaring that 'filter' drives 'pieChart',
+        // so that the pie chart will only display entries that are let through
+        // given the chosen slider range.
+        dashboard.bind(donutRangeSlider, pieChart);
+
+        // Draw the dashboard.
+        dashboard.draw(data);
+      }
     </script>
   </head>
+
   <body>
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
-<div id="chart_lines" style="width: 900px; height: 500px;"></div>
+    <!--Div that will hold the dashboard-->
+    <div id="dashboard_div">
+      <!--Divs that will hold each control and chart-->
+      <div id="filter_div"></div>
+      <div id="chart_div"></div>
+    </div>
   </body>
 </html>
